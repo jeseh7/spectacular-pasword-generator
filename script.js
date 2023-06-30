@@ -16,15 +16,15 @@ function generatePassword(){
   // number between 8 and 128 and terminate the code
 
   if (userNum == null){
-    void(0);
+    return;
   }
   else if (userNum < 8){
     alert("Passwords must be at least 8 characters");
-    void(0);
+    return;
   }
   else if (userNum > 128){
     alert("Passwords must be less than 128 characters");
-    void(0);
+    return;
   }
 
   //Click ok to include special characters or cancel to not
@@ -74,24 +74,25 @@ function generatePassword(){
   }
 
   //Test if password was generated
-  alert(password);
+  //alert(password);
+
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
 }
-
-generatePassword();
-
-//Print code in password section of page
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+/*
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
+*/
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", generatePassword);
